@@ -1,22 +1,11 @@
-
-server {
-
-  listen 80 default;
-
-  location ^~ /uploads/ {
-    root /home/box/web;
-  }
-
-  location ^~ /hello/ {
-    proxy_pass http://0.0.0.0:8080;
-  }
-
-  location ~* ^.+\.\w+$ {
-    root /home/box/web/public;
-  }
-
-  location / {
-    return 404;
-  }
-  
+CONFIG = {
+    'mode': 'wsgi',
+    'working_dir': '/home/box/web/etc/',
+    'python': '/usr/bin/python',
+    'args': (
+        '--bind=0.0.0.0:8080',
+        '--workers=5',
+        '--timeout=60',
+        'helo',
+    ),
 }
