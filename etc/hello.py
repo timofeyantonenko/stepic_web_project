@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/local/bin/python2.7/
 def application(environ, start_response):
     status = '200 OK'
     headers = [('Content-type', 'text/plain')]
